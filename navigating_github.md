@@ -5,3 +5,11 @@
 Here is the organization account: 
 
 https://github.com/STAT545-UBC 
+
+URL for my STAT545 Participation Repo: 
+
+https://github.com/LindaD95/STAT545-participation 
+
+Here is my user account URL
+
+https://github.com/LindaD95
