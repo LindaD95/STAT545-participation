@@ -1,0 +1,14 @@
+---
+title: "Explore!2"
+output:
+  pdf_document:
+    toc: yes
+  html_document:
+    keep_md: yes
+    theme: cerulean
+    toc: yes
+    toc_float: yes
+---
+```{r, echo = FALSE, warning = FALSE}
+
+```
