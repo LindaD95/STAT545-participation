@@ -13,3 +13,6 @@ https://github.com/LindaD95/STAT545-participation
 Here is my user account URL
 
 https://github.com/LindaD95
+
+*I missed this class* **OPPS my bad** 
+but sometimes technology screws you over 
