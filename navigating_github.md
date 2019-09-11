@@ -16,6 +16,7 @@ https://github.com/LindaD95
 
 *I missed this class* **OPPS my bad** 
 but sometimes technology screws you over 
+
 Some of my favourite things 
 * Coffee
 * Hiking
