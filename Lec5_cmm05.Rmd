@@ -85,8 +85,8 @@ Produce a line chart showing the concentration over time. Specifically, the plot
 Fill in the blanks to obtain the plot:
 
 ```{r, fig.width = 5, fig.height = 2}
-ggplot(mauna, aes(month, conc)) +
-  geom_line(alpha = 1)
+(p <- ggplot(mauna, aes(month, conc)) +
+  geom_line())
 ```
 
 ### 2(b)
@@ -100,7 +100,8 @@ The following code mistakenly puts the month variable on the y-axis. Fill in the
 
 ```{r, fig.width = 5, fig.height = 2}
 ggplot(mauna, aes(y = month)) +
-  geom_point(aes(FILL_THIS_IN))
+  geom_line(aes(month, conc)) + 
+  ylab("CO2")
 ```
 
 ### 2(c)
@@ -109,7 +110,7 @@ You can store the output of the plot in a variable, too. Store the plot from 2(a
 
 ```{r, fig.width = 5, fig.height = 2}
 p +
-  FILL_THIS_IN(colour = FILL_THIS_IN)
+  geom_point(colour = "green", alpha = 0.2)
 ```
 
 ### 2(d)
@@ -118,7 +119,7 @@ What's wrong with the following code? Fix it.
 
 ```{r, fig.width = 5, fig.height = 2}
 ggplot(gapminder) +
-  geom_point(x = gdpPercap, y = lifeExp, alpha = 0.1)
+  geom_point(aes(x = gdpPercap, y = lifeExp), alpha = 0.1)
 ```
 
 
