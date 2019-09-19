@@ -1,6 +1,8 @@
 ---
 title: 'cm006: `dplyr` Exercise'
-output: html_notebook
+output: 
+  html_document: 
+    keep_md: true 
 editor_options: 
   chunk_output_type: inline
 ---
@@ -25,8 +27,8 @@ Load the `gapminder` and `tidyverse` packages. Hint: `suppressPackageStartupMess
     
 ```{r load packages, warning = FALSE, message = FALSE}
 # load your packages here:
-library(FILL_THIS_IN)
-library(FILL_THIS_IN)
+library(gapminder)
+library(tidyverse)
 ```
     
 
@@ -35,7 +37,7 @@ library(FILL_THIS_IN)
 1. Make a data frame containing the columns `year`, `lifeExp`, `country` from the gapminder data, in that order.
 
 ```{r}
-select(gapminder, FILL_THIS_IN)
+select(gapminder, year, lifeExp, country)
 ```
 
 
@@ -45,31 +47,33 @@ select(gapminder, FILL_THIS_IN)
 # This will work:
 select(gapminder, country, continent, year, lifeExp)
 
-# Better way:
-select(gapminder, FILL_THIS_IN)
+# Better way, ie less text type in the outer columns separate by colon:
+select(gapminder, country: lifeExp)
 ```
 
 
 3. Select all variables, except `lifeExp`.
 
 ```{r}
-select(gapminder, FILL_THIS_IN)
+select(gapminder, -lifeExp)
 ```
 
 4. Put `continent` first. Hint: use the `everything()` function.
 
 ```{r}
-select(gapminder, FILL_THIS_IN, FILL_THIS_IN)
+select(gapminder, continent, everything())
 ```
 
 
 5. Rename `continent` to `cont`.
 
 ```{r}
-# compare
-select(gapminder, FILL_THIS_IN)
+# compare correct versus incorrect 
+select(gapminder, cont = continent, everything())
 
-rename(gapminder, FILL_THIS_IN)
+rename(gapminder, cont = continent)
+
+# order matters left = what you want to rename 
 ```
 
 
@@ -90,7 +94,9 @@ arrange(gapminder, FILL_THIS_IN)
 3. Order by year, then by life expectancy.
 
 ```{r}
-arrange(gapminder, FILL_THIS_IN, FILL_THIS_IN)
+arrange(gapminder, desc(year), desc(lifeExp))
+
+# if year and order were flipped the table would be different
 ```
 
 ## Piping, `%>%` (8 min)
