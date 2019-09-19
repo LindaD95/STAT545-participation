@@ -122,9 +122,9 @@ Now using with pipes(write out as you want to happen:
 # alter the below to include 2 "pipes" property of being self documenting
 arrange(select(gapminder, year, lifeExp, country), year, lifeExp)
 gapminder %>% 
-  select(year, lifeExp, country) %>% 
+  select(country, year, lifeExp) %>% 
   arrange(year, lifeExp)
-# arrange determines how the data is sorted, but not the order that the columns appear... would have to change that in select? 
+# v2 
 ```
 
 # Resume lecture 
