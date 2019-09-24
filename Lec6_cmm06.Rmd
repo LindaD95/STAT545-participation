@@ -21,7 +21,7 @@ knitr::opts_chunk$set(error = TRUE)
 3. Stage and commit the rmd, and knitted documents.
 
 # Intro to `dplyr` syntax
-
+arrange
 Load the `gapminder` and `tidyverse` packages. Hint: `suppressPackageStartupMessages()`!
     - This loads `dplyr`, too.
     
@@ -171,9 +171,10 @@ Let's get:
 - GDP in billions, named (`gdpBill`), rounded to two decimals.
 
 ```{r}
-gapminder %>%
+Tabgapminder %>%
   mutate(gdpbill = gdpPercap*pop/1000000000) %>% 
   round(digits = 2)
+
 # thiink that some brackets are missing 
 
 # in order to store 
@@ -187,7 +188,7 @@ Try the same thing, but with `transmute` (drops all other variables).
 
 ```{r}
 gapminder %>%
-  transmute(gdpbill = round(gdpPercap*pop/1000000000))  
+  transmute(gdpbill = round(gdpPercap*pop/1000000000))
 # shortcut to doing select and then mutate 
 ```
 
@@ -200,7 +201,6 @@ gapminder %>%
   mutate(lifeExp = if_else(country == 'Canada' & year == 1952, 70, lifeExp))
 ```
 
-Your turn: Make a new column called `cc` that pastes the country name followed by the continent, separated by a comma. (Hint: use the `paste` function with the `sep=", "` argument).
 
 ```{r}
 
