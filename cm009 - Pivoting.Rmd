@@ -118,9 +118,7 @@ email %>%
 
 ```{r}
 n <- 100
-FILL_THIS_IN(label = FILL_THIS_IN,
-             FILL_THIS_IN = rnorm(n),
-             FILL_THIS_IN)
+# missed this,, was trying to load data and packages from cm010)
 ```
 
 
@@ -146,7 +144,7 @@ experiment <- tibble(
   measurement_1 = runif(6),
   measurement_2 = runif(6)
 )
-experiment %>% expand(name, trt, rep)
+experiment %>% complete(nesting(name, trt, rep)) 
 ```
 
 in
