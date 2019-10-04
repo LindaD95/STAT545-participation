@@ -158,7 +158,7 @@ Fix the plot so that you can actually see the data points. Be sure to solve the 
 gapminder %>% 
   filter(continent == "Americas") %>% 
   ggplot(aes(country, lifeExp)) + 
-  geom_point() +
+  ggridges::geom_density_ridges()  +
   geom_boxplot()
 ```
 

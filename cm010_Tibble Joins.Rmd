@@ -15,6 +15,9 @@ install.packages("devtools")
 devtools::install_github("JoeyBernhardt/singer")
 ```
 ```{r}
+read_csv("https://raw.githubusercontent.com/STAT545-UBC/STAT545-home/master/content/loc.csv")
+read_csv("https://raw.githubusercontent.com/STAT545-UBC/STAT545-home/master/content/songs.csv")
+#needed to install readr and correct songs
 
 ```
 
@@ -24,9 +27,6 @@ Load required packages:
 library(tidyverse)
 library(singer)
 knitr::opts_chunk$set(fig.width=4, fig.height=3, warning = FALSE, fig.align = "center")
-```
-```{r}
-read_csv("https://raw.githubusercontent.com/STAT545-UBC/STAT545-home/master/content/loc.csv")
 ```
 
 
@@ -75,22 +75,22 @@ time %>%
 
 ```{r}
 time %>% 
-  FILL_THIS_IN(album, by = "song")
+  semi_join(album, by = "song") 
 ```
 
 4. Which artists are in `time`, but not in `album`?
 
 ```{r}
 time %>% 
-  anti_join(album, by = "FILL_THIS_IN")
+  anti_join(album, by = "artist_name")
 ```
 
 
 5. You've come across these two tibbles, and just wish all the info was available in one tibble. What would you do?
 
 ```{r}
-FILL_THIS_IN %>% 
-  FILL_THIS_IN(FILL_THIS_IN, by = "song")
+album %>%
+  full_join(album, by = c("song", "artis_name"))
 ```
 
 
