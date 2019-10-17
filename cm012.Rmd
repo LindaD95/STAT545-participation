@@ -118,7 +118,7 @@ str()
 ```{r}
 gapminder %>% # instead of using
   filter(country == "Canada" | country == "Mexico" | country ) 
-# choose countres with factors
+# choose countries with factors
 ```
 
 ```{r}
@@ -142,10 +142,7 @@ The function `droplevels()` operates on all the factors in a data frame or on a 
 ```{r}
 h_gap_dropped <- gap %>% 
   droplevels()
-h_gap_dropped$country %>% 
-  nlevels() 
-
-
+h_gap_dropped 
 ```
 
 ## Changing the order of levels
