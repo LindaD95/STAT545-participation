@@ -26,35 +26,24 @@ This worksheet contains exercises aimed for practice with `dplyr`.
 
 ```{r}
 gapminder %>% 
- summarize(mu = mean(lifeExp), sigma = sd(lifeExp)) 
-# nowhere above was the  mean lifeExp variable defined, try tryig lifeExp, within the summarize function, contains a new enviornment 
-# recall, enviornment has the variables that are created
-# a tibble containss several vectors 
+  group_by(continent, year) %>%
+  summarize(min_life = min(lifeExp), country = country[lifeExp == min_life]) %>% 
+  # do not want the min life exp for each country --> need to use some base R 
+  #switch around the country variable, and min life stuff, not gonna work 
+  arrange(min_life) 
+# 2 countries with the shared minimum, throw an error  compress country[lifeExp] into single character with a comma 
 ```
-## Group_by() 
-
-Group by x and y 
-Creating its on unique group 
-Dataframes cannot be grouped but tibbles can! 
-
-
-```{r group_by}
-gapminder %>% 
-  group_by(continent, year)
-```
-```{r}
-gapminder %>% 
-  group_by(smallLifeExp = lifeExp <60)
-``` 
 
 2. Calculate the growth in population since the first year on record _for each country_ by rearranging the following lines, and filling in the `FILL_THIS_IN`. Here's another convenience function for you: `dplyr::first()`. 
 
 ```{r Exercise 2}
-mutate(rel_growth = FILL_THIS_IN) %>% 
-arrange(FILL_THIS_IN) %>% 
-gapminder %>% 
-DT::datatable()
-group_by(country) %>% 
+# How would the first() function help? --> takes the vector and gives the first value... 
+gapminder %>%
+  group_by(country) %>% 
+  arrange(year) %>%
+  mutate(rel_growth = pop - first(pop)) %>% 
+  DT:datatable
+
 ```
 
 ```{r}
@@ -78,7 +67,20 @@ knitr::kable()
 ```
 
 ```{r}
-
+gapminder %>% 
+  # not grouping by continent first 
+  group_by(country) %>% 
+  arrange(year) %>% 
+  # ^ precaution 
+  mutate(inc_life_exp = difference(lifeExp)) %>% 
+  drop_na() %>% 
+# tibble is still group by country but we want to look at each continent 
+  ungroup() %>% 
+  group_by(continent) %>% 
+  filter(inc_life_exp == min(inc_life_exp)) %>%
+  arrange(inc_life_exp) %>% 
+  #arrange operates independently of groups 
+  knitr::kable() 
 ```
 
 
