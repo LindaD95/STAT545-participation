@@ -1,3 +1,8 @@
+---
+output:
+  html_document: default
+  pdf_document: default
+---
 ## **Lecture 3:** Authoring 
 
 Here are some pertinent URLS:  
@@ -10,8 +15,8 @@ Here are some pertinent URLS:
 *I missed this class* **OPPS my bad** 
 but sometimes technology screws you over (ie may laptop decided that it was going to die today!)
 
-Some of my favourite things <3  
-  * Coffee
-  * Hiking
-  * Skiing
+Some of my favourite things:    
+* Coffee
+* Hiking
+* Skiing
   
